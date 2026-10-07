@@ -1,0 +1,17 @@
+[Unit]
+Description=Telegram Support Bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/tgbot
+ExecStart=/opt/tgbot/venv/bin/python /opt/tgbot/bot.py
+Restart=always
+RestartSec=5
+User=root
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
